@@ -1,24 +1,9 @@
 import { useState, useMemo, useRef } from "react";
+
+import TodoList from "./components/TodoList";
+import TrashButton from "./components/TrashButton";
+
 import "./App.css";
-
-export const TrashButton = ({ isVisible, remove }) =>
-  isVisible ? (
-    <button onClick={remove}>Supprimer les tâches complétées</button>
-  ) : null;
-
-export const TodoList = ({ items, onClick }) => (
-  <ul className="mt-3">
-    {items.map((item) => (
-      <li
-        key={item.id}
-        className={`${item.done && "done"}`}
-        onClick={() => onClick(item.id)}
-      >
-        {item.value}
-      </li>
-    ))}
-  </ul>
-);
 
 function App() {
   const inputRef = useRef();
@@ -53,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="mb-2">La Todo Liste</h1>
+      <h1 className="mb-2">Ma Todo Liste</h1>
       <form
         data-testid="form"
         onSubmit={handleOnSubmit}
